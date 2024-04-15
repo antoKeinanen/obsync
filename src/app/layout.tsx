@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import "highlight.js/styles/github.css";
 
 import { Inter } from "next/font/google";
 
@@ -22,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>
+      <body className={`flex justify-center pt-8 font-sans ${inter.variable}`}>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
