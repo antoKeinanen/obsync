@@ -1,26 +1,19 @@
-import { Marked } from "@ts-stack/markdown";
-import hljs from "highlight.js";
+import sanitizeHtml from "sanitize-html";
+import { RMark } from "./parser/rules";
 
 interface MarkdownProps {
   children: string;
 }
 
-function Markdown({ children }: MarkdownProps) {
-  Marked.setOptions({
-    highlight: (code, lang) => {
-      console.log(lang);
-      return hljs.highlight(lang ?? "markdown", code).value;
-    },
-    gfm: true,
-    breaks: true,
-  });
 
-  const parsed = Marked.parse(children);
+async function Markdown({ children }: MarkdownProps) {
+  const dirty_parsed = new RMark().render(children);
+  const clean_parsed = sanitizeHtml(dirty_parsed);
 
   return (
     <article
       className="break-words"
-      dangerouslySetInnerHTML={{ __html: parsed }}
+      dangerouslySetInnerHTML={{ __html: clean_parsed }}
     ></article>
   );
 }
