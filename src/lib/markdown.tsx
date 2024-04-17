@@ -1,5 +1,6 @@
 import { alert } from "@mdit/plugin-alert";
 import markdownIt from "markdown-it";
+import "~/styles";
 
 interface MarkdownProps {
   children: string;
@@ -28,6 +29,7 @@ async function Markdown({ children }: MarkdownProps) {
       "bug",
       "example",
       "quote",
+      "danger",
     ],
   });
   const parsed = mdIt.render(children);

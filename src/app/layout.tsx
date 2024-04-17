@@ -23,7 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`flex justify-center pt-8 font-sans ${inter.variable}`}>
+      <body
+        className={`flex justify-center bg-primary pt-8 font-sans prose-headings:text-primary-foreground prose-p:text-primary-foreground prose-code:rounded-md prose-code:bg-[#262625] prose-code:p-[0.25em] prose-code:py-[0.1em] prose-code:text-[#EC5A62] ${inter.variable}`}
+      >
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>

@@ -8,6 +8,12 @@ export default {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
+      colors: {
+        primary: {
+          DEFAULT: "#161616",
+          foreground: "#f5f4f0",
+        }
+      }
     },
   },
   plugins: [require("@tailwindcss/typography")],
